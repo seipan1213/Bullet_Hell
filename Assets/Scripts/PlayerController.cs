@@ -15,11 +15,14 @@ public class PlayerController : CharBase
 
 	public GameObject bullet;
 
-	private int powerLevel = 0;
+	private int powerLevel = 1;
 
 	private Animator animtor;
 
 	public GameManager gm;
+
+	[SerializeField]
+	private int powerMax = 10;
 	private enum eAnimParam
 	{
 		CENTER,
@@ -66,13 +69,17 @@ public class PlayerController : CharBase
 
 	void Shot()
 	{
-		GameObject bl = Instantiate(bullet, this.transform.position, this.transform.rotation);
-		bl.GetComponent<Bullet>().shooter = this.gameObject;
+		for (int i = 1; i <= powerLevel; i++)
+		{
+			Vector3 pos = new Vector3(this.transform.position.x + i / 2 * (i % 2 == 0 ? 0.5f : -0.5f), this.transform.position.y + 0.5f, 0);
+			GameObject bl = Instantiate(bullet, pos, this.transform.rotation);
+			bl.GetComponent<Bullet>().shooter = this.gameObject;
+		}
 	}
 
 	public void PowerUp(int point)
 	{
-		if (powerLevel >= 100)//TODO: 弾種類数
+		if (powerLevel >= powerMax)
 		{
 			Heal(10);
 			return;
