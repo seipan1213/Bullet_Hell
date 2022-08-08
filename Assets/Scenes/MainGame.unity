@@ -562,7 +562,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230940750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
   m_LocalScale: {x: 8, y: 10, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1156,7 +1156,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Time: '
+  m_text: 'Time: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1767,7 +1767,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1210335447
 MonoBehaviour:
@@ -3125,6 +3125,8 @@ MonoBehaviour:
   player: {fileID: 934263819745830332, guid: 412a91cc661128a4f9d00c1cae12302e, type: 3}
   enemys:
   - {fileID: 8131180820792552194, guid: a13bee41d24f1714a850fbede4b43fcd, type: 3}
+  - {fileID: 8131180820792552194, guid: eddfdac1c1ca1f247ab571f09d0cea7c, type: 3}
+  - {fileID: 8131180820792552194, guid: ff1112c1c546f5e428e39456db51dcc5, type: 3}
   playerSpawnPoint: {fileID: 171708289}
   enemySpawnPoint:
   - {fileID: 2043203305}
@@ -3133,7 +3135,7 @@ MonoBehaviour:
   - {fileID: 404519557}
   - {fileID: 487484812}
   enemyBaseTarget: {fileID: 230940751}
-  spawnInterval: 0.5
+  spawnInterval: 0.6
   spawnCurrent: 0
   spawnMax: 30
   timeLimit: 60

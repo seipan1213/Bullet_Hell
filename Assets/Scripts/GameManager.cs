@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
 
 	[SerializeField]
 	private float timeLimit = 60f;
+	private float timeStart;
 
 	public bool gameClear = false;
 
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
 	{
+		timeStart = timeLimit;
 		SpawnPlayer();
 	}
 
@@ -68,10 +70,12 @@ public class GameManager : MonoBehaviour
 	void SpawnEnemy()
 	{
 		spawnDeltaTime += Time.deltaTime;
+		if (timeLimit / timeStart <= 0.3)
+			spawnDeltaTime += Time.deltaTime;
 		if (spawnDeltaTime >= spawnInterval && spawnCurrent < spawnMax)
 		{
-			int enemy_num = Random.Range(0, enemys.Length - 1);
-			int spawn_num = Random.Range(0, enemySpawnPoint.Length - 1);
+			int enemy_num = Random.Range(0, enemys.Length - (timeLimit / timeStart <= 0.3 ? 0 : 1));
+			int spawn_num = Random.Range(0, enemySpawnPoint.Length);
 			Enemy enemy = Instantiate(enemys[enemy_num], enemySpawnPoint[spawn_num].position, enemySpawnPoint[spawn_num].rotation).GetComponent<Enemy>();
 			enemy.targetBasePos = enemyBaseTarget.position;
 			enemy.gm = this;

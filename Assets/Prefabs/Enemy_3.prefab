@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1850192678402615160}
   - component: {fileID: 3726831758383480025}
   m_Layer: 6
-  m_Name: Enemy
+  m_Name: Enemy_3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 8414478535512612329, guid: 138040323294fd440a3a823e5d70ad01, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0.8841176, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -147,15 +147,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb11a70b9833054cbb61ea42bd21aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 20
+  maxHealth: 80
   bullet: {fileID: 3912545298158663681, guid: 71000c8403413bf47b1c424be1d5d85a, type: 3}
   items:
   - {fileID: 4432494625813828375, guid: 99a4b4c3746344c4891ab6036e6a2724, type: 3}
+  - {fileID: 4432494625813828375, guid: 99a4b4c3746344c4891ab6036e6a2724, type: 3}
+  - {fileID: 4432494625813828375, guid: 99a4b4c3746344c4891ab6036e6a2724, type: 3}
+  - {fileID: 4432494625813828375, guid: 99a4b4c3746344c4891ab6036e6a2724, type: 3}
+  - {fileID: 4432494625813828375, guid: 99a4b4c3746344c4891ab6036e6a2724, type: 3}
+  - {fileID: 4432494625813828375, guid: 99a4b4c3746344c4891ab6036e6a2724, type: 3}
+  - {fileID: 4432494625813828375, guid: 99a4b4c3746344c4891ab6036e6a2724, type: 3}
+  - {fileID: 4432494625813828375, guid: 5c01882892e22844db887850715d50b7, type: 3}
+  - {fileID: 4432494625813828375, guid: 5c01882892e22844db887850715d50b7, type: 3}
   - {fileID: 4432494625813828375, guid: 5c01882892e22844db887850715d50b7, type: 3}
   targetPos: {x: 0, y: 0, z: 0}
   targetBasePos: {x: 0, y: 0, z: 0}
+  shotInterval: 0.5
   gm: {fileID: 0}
-  score: 100
+  score: 500
+  dropParsent: 80
+  speed: 6
 --- !u!95 &3726831758383480025
 Animator:
   serializedVersion: 4

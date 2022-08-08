@@ -15,6 +15,10 @@ public class PlayerController : CharBase
 
 	public GameObject bullet;
 
+	[SerializeField]
+	private float shotInterval = 0.05f;
+	private float shotTimer = 0;
+
 	private int powerLevel = 1;
 
 	private Animator animtor;
@@ -40,7 +44,9 @@ public class PlayerController : CharBase
 	void FixedUpdate()
 	{
 		PlayerMove();
-		Shot();
+		if (shotTimer >= shotInterval)
+			Shot();
+		shotTimer += Time.deltaTime;
 	}
 
 	void PlayerMove()
@@ -75,6 +81,7 @@ public class PlayerController : CharBase
 			GameObject bl = Instantiate(bullet, pos, this.transform.rotation);
 			bl.GetComponent<Bullet>().shooter = this.gameObject;
 		}
+		shotTimer = 0;
 	}
 
 	public void PowerUp(int point)

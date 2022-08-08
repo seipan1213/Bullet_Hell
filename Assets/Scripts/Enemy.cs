@@ -13,11 +13,19 @@ public class Enemy : CharBase
 	public Vector3 targetPos;
 	public Vector3 targetBasePos;
 
+	[SerializeField]
+	private float shotInterval = 1f;
 	private float time;
 	public GameManager gm;
 
 	[SerializeField]
 	private int score;
+
+	[SerializeField]
+	private float dropParsent;
+
+	[SerializeField]
+	private float speed = 1;
 	new void Start()
 	{
 		base.Start();
@@ -29,7 +37,7 @@ public class Enemy : CharBase
 	{
 		EnemyMove();
 		time += Time.deltaTime;
-		if (time > 1f)
+		if (time > shotInterval)
 		{
 			Shot();
 			time = 0;
@@ -45,8 +53,8 @@ public class Enemy : CharBase
 		Vector3 heading = targetPos - this.transform.position;
 		float distance = heading.magnitude;
 
-		move_vec = heading / distance;
-		this.transform.Translate(move_vec / 25);
+		move_vec = heading / distance / 100 * speed;
+		this.transform.Translate(move_vec);
 	}
 
 	void Shot()
@@ -69,7 +77,7 @@ public class Enemy : CharBase
 	void OnDestroy()
 	{
 		gm.DieEnemy(score);
-		if (this.health <= 0 && Random.Range(0, 1f) < 0.1f)
+		if (this.health <= 0 && Random.Range(0, 1f) <= dropParsent / 100)
 			SpawnItem();
 	}
 }
