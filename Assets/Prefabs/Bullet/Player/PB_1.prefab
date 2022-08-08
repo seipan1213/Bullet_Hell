@@ -147,5 +147,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vectorSpeed: {x: 0, y: 50, z: 0}
-  damage: 3
+  damage: 5
   shooter: {fileID: 0}

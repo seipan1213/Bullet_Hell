@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bb11a70b9833054cbb61ea42bd21aaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 30
   bullet: {fileID: 3912545298158663681, guid: 71000c8403413bf47b1c424be1d5d85a, type: 3}
   items:
   - {fileID: 4432494625813828375, guid: 99a4b4c3746344c4891ab6036e6a2724, type: 3}
@@ -157,15 +157,15 @@ MonoBehaviour:
   - {fileID: 4432494625813828375, guid: 99a4b4c3746344c4891ab6036e6a2724, type: 3}
   - {fileID: 4432494625813828375, guid: 99a4b4c3746344c4891ab6036e6a2724, type: 3}
   - {fileID: 4432494625813828375, guid: 99a4b4c3746344c4891ab6036e6a2724, type: 3}
-  - {fileID: 4432494625813828375, guid: 99a4b4c3746344c4891ab6036e6a2724, type: 3}
+  - {fileID: 4432494625813828375, guid: 5c01882892e22844db887850715d50b7, type: 3}
   - {fileID: 4432494625813828375, guid: 5c01882892e22844db887850715d50b7, type: 3}
   - {fileID: 4432494625813828375, guid: 5c01882892e22844db887850715d50b7, type: 3}
   targetPos: {x: 0, y: 0, z: 0}
   targetBasePos: {x: 0, y: 0, z: 0}
   shotInterval: 0.8
   gm: {fileID: 0}
-  score: 300
-  dropParsent: 50
+  score: 200
+  dropParsent: 20
   speed: 4
 --- !u!95 &3726831758383480025
 Animator:

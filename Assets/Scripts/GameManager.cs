@@ -43,6 +43,11 @@ public class GameManager : MonoBehaviour
 	{
 		timeStart = timeLimit;
 		SpawnPlayer();
+		for (int i = 0; i < spawnMax / 2; i++)
+		{
+			spawnDeltaTime += spawnInterval;
+			SpawnEnemy();
+		}
 	}
 
 	// Update is called once per frame
@@ -70,11 +75,11 @@ public class GameManager : MonoBehaviour
 	void SpawnEnemy()
 	{
 		spawnDeltaTime += Time.deltaTime;
-		if (timeLimit / timeStart <= 0.3)
-			spawnDeltaTime += Time.deltaTime;
+		if (timeLimit / timeStart <= 0.5)
+			spawnDeltaTime += Time.deltaTime * 2;
 		if (spawnDeltaTime >= spawnInterval && spawnCurrent < spawnMax)
 		{
-			int enemy_num = Random.Range(0, enemys.Length - (timeLimit / timeStart <= 0.3 ? 0 : 1));
+			int enemy_num = Random.Range(0, enemys.Length - 1) + (timeLimit / timeStart <= 0.5 ? 1 : 0);
 			int spawn_num = Random.Range(0, enemySpawnPoint.Length);
 			Enemy enemy = Instantiate(enemys[enemy_num], enemySpawnPoint[spawn_num].position, enemySpawnPoint[spawn_num].rotation).GetComponent<Enemy>();
 			enemy.targetBasePos = enemyBaseTarget.position;
