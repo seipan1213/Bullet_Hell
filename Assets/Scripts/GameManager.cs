@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -30,6 +31,12 @@ public class GameManager : MonoBehaviour
 
 	public bool gameClear = false;
 
+	[SerializeField]
+
+	private UIManager um;
+
+	private int score = 0;
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -44,6 +51,12 @@ public class GameManager : MonoBehaviour
 		if (timeLimit <= 0)
 		{
 			gameClear = true;
+			um.GameClear(score);
+			Time.timeScale = 0;
+		}
+		if (gameClear && Input.anyKeyDown)
+		{
+			SceneManager.LoadScene("Title");
 		}
 		timeLimit -= Time.deltaTime;
 	}
@@ -66,5 +79,10 @@ public class GameManager : MonoBehaviour
 			spawnDeltaTime = 0;
 			spawnCurrent++;
 		}
+	}
+
+	void AddScore(int score)
+	{
+		this.score += score;
 	}
 }

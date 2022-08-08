@@ -104,4 +104,14 @@ public class PlayerController : CharBase
 
 		SetAnimParam(param, true);
 	}
+
+	public void Damage(float damage)
+	{
+		health -= damage;
+		if (health <= 0)
+		{
+			
+			Destroy(this.gameObject);
+		}
+	}
 }

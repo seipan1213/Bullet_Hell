@@ -7,7 +7,7 @@ public class ItemBase : MonoBehaviour
 	[SerializeField]
 	Vector3 vec;
 
-	void Update()
+	void FixedUpdate()
 	{
 		ItemMove();
 	}

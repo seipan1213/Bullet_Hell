@@ -146,6 +146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a929ee992f3f294cbd633f002e8e0be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vector_speed: {x: 0, y: 50, z: 0}
+  vectorSpeed: {x: 0, y: 50, z: 0}
   damage: 1
   shooter: {fileID: 0}

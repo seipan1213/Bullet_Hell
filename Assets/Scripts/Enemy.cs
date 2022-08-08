@@ -22,7 +22,7 @@ public class Enemy : CharBase
 	}
 
 	// Update is called once per frame
-	void Update()
+	void FixedUpdate()
 	{
 		EnemyMove();
 		time += Time.deltaTime;
@@ -43,7 +43,7 @@ public class Enemy : CharBase
 		float distance = heading.magnitude;
 
 		move_vec = heading / distance;
-		this.transform.Translate(move_vec / 50);
+		this.transform.Translate(move_vec / 25);
 	}
 
 	void Shot()
