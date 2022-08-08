@@ -13,7 +13,7 @@ public class CharBase : MonoBehaviour
 		this.health = this.maxHealth;
 	}
 
-	public void Damage(float damage)
+	public virtual void Damage(float damage)
 	{
 		health -= damage;
 		if (health <= 0)

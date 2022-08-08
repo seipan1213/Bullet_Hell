@@ -18,6 +18,8 @@ public class PlayerController : CharBase
 	private int powerLevel = 0;
 
 	private Animator animtor;
+
+	public GameManager gm;
 	private enum eAnimParam
 	{
 		CENTER,
@@ -105,13 +107,12 @@ public class PlayerController : CharBase
 		SetAnimParam(param, true);
 	}
 
-	public void Damage(float damage)
+	public override void Damage(float damage)
 	{
 		health -= damage;
 		if (health <= 0)
 		{
-			
-			Destroy(this.gameObject);
+			gm.GameClear();
 		}
 	}
 }

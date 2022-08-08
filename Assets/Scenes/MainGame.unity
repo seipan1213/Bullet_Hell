@@ -2403,7 +2403,7 @@ MonoBehaviour:
   spawnInterval: 0.5
   spawnCurrent: 0
   spawnMax: 30
-  timeLimit: 5
+  timeLimit: 100
   gameClear: 0
   um: {fileID: 983474124}
 --- !u!4 &1895888964

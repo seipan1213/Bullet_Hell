@@ -48,11 +48,9 @@ public class GameManager : MonoBehaviour
 	{
 		SpawnEnemy();
 
-		if (timeLimit <= 0)
+		if (timeLimit <= 0 && !gameClear)
 		{
-			gameClear = true;
-			um.GameClear(score);
-			Time.timeScale = 0;
+			GameClear();
 		}
 		if (gameClear && Input.anyKeyDown)
 		{
@@ -64,7 +62,7 @@ public class GameManager : MonoBehaviour
 
 	void SpawnPlayer()
 	{
-		Instantiate(player, playerSpawnPoint);
+		Instantiate(player, playerSpawnPoint).GetComponent<PlayerController>().gm = this;
 	}
 
 	void SpawnEnemy()
@@ -79,6 +77,13 @@ public class GameManager : MonoBehaviour
 			spawnDeltaTime = 0;
 			spawnCurrent++;
 		}
+	}
+
+	public void GameClear()
+	{
+		gameClear = true;
+		um.GameClear(score);
+		Time.timeScale = 0;
 	}
 
 	void AddScore(int score)

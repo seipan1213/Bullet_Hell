@@ -95,12 +95,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18d5247935f44dd4395c5206c6cb3594, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 1000
+  maxHealth: 100
   f_speed: 0.1
   b_speed: 0.1
   r_speed: 0.1
   l_speed: 0.1
   bullet: {fileID: 3912545298158663681, guid: d3092be831a7d80488fe2f455ec2bf1c, type: 3}
+  gm: {fileID: 0}
 --- !u!95 &-2830953154605949799
 Animator:
   serializedVersion: 4
