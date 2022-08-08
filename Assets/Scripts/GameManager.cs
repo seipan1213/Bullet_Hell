@@ -47,12 +47,12 @@ public class GameManager : MonoBehaviour
 	void Update()
 	{
 		SpawnEnemy();
-
+		um.Timer(timeLimit);
 		if (timeLimit <= 0 && !gameClear)
 		{
 			GameClear();
 		}
-		if (gameClear && Input.anyKeyDown)
+		if (gameClear && Input.GetKeyDown(KeyCode.Q))
 		{
 			SceneManager.LoadScene("Title");
 		}
@@ -68,12 +68,13 @@ public class GameManager : MonoBehaviour
 	void SpawnEnemy()
 	{
 		spawnDeltaTime += Time.deltaTime;
-		if (spawnDeltaTime >= spawnInterval)
+		if (spawnDeltaTime >= spawnInterval && spawnCurrent < spawnMax)
 		{
 			int enemy_num = Random.Range(0, enemys.Length - 1);
 			int spawn_num = Random.Range(0, enemySpawnPoint.Length - 1);
-			GameObject enemy = Instantiate(enemys[enemy_num], enemySpawnPoint[spawn_num].position, enemySpawnPoint[spawn_num].rotation);
-			enemy.GetComponent<Enemy>().targetBasePos = enemyBaseTarget.position;
+			Enemy enemy = Instantiate(enemys[enemy_num], enemySpawnPoint[spawn_num].position, enemySpawnPoint[spawn_num].rotation).GetComponent<Enemy>();
+			enemy.targetBasePos = enemyBaseTarget.position;
+			enemy.gm = this;
 			spawnDeltaTime = 0;
 			spawnCurrent++;
 		}
@@ -86,8 +87,22 @@ public class GameManager : MonoBehaviour
 		Time.timeScale = 0;
 	}
 
+	public void UpdateGameMainUI(float hpParsent = -1)
+	{
+		um.GameMain(score: score, hpParsent: hpParsent);
+	}
+
 	void AddScore(int score)
 	{
 		this.score += score;
+		UpdateGameMainUI();
+	}
+
+
+	public void DieEnemy(int score)
+	{
+		spawnCurrent--;
+		this.score += score;
+		UpdateGameMainUI();
 	}
 }

@@ -14,7 +14,10 @@ public class Enemy : CharBase
 	public Vector3 targetBasePos;
 
 	private float time;
+	public GameManager gm;
 
+	[SerializeField]
+	private int score;
 	new void Start()
 	{
 		base.Start();
@@ -65,6 +68,7 @@ public class Enemy : CharBase
 
 	void OnDestroy()
 	{
+		gm.DieEnemy(score);
 		if (this.health <= 0 && Random.Range(0, 1f) < 0.1f)
 			SpawnItem();
 	}

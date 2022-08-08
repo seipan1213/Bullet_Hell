@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vec: {x: 0, y: -2, z: 0}
-  healHp: 0
+  healHp: 10
 --- !u!95 &2655729878526746347
 Animator:
   serializedVersion: 4

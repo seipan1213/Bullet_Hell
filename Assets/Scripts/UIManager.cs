@@ -11,8 +11,20 @@ public class UIManager : MonoBehaviour
 	private Canvas gameClear;
 
 	[SerializeField]
+	private Canvas gameMain;
 
+	[SerializeField]
+	private TextMeshProUGUI resultScoreText;
+
+	[SerializeField]
 	private TextMeshProUGUI scoreText;
+
+	[SerializeField]
+	private Slider hpSlider;
+
+	[SerializeField]
+	private TextMeshProUGUI timer;
+
 	void Start()
 	{
 		gameClear.enabled = false;
@@ -27,6 +39,23 @@ public class UIManager : MonoBehaviour
 	public void GameClear(int score)
 	{
 		gameClear.enabled = true;
-		scoreText.text = "Score: " + score.ToString();
+		resultScoreText.text = "Score: " + score.ToString();
+	}
+
+	public void GameMain(int score = -1, float hpParsent = -1)
+	{
+		if (score >= 0)
+		{
+			scoreText.text = "Score: " + score.ToString();
+		}
+		if (hpParsent >= 0)
+		{
+			hpSlider.value = hpParsent;
+		}
+	}
+
+	public void Timer(float time)
+	{
+		timer.text = "Timer: " + ((int)Mathf.Ceil(time)).ToString();
 	}
 }

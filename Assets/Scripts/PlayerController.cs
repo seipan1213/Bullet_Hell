@@ -117,9 +117,16 @@ public class PlayerController : CharBase
 	public override void Damage(float damage)
 	{
 		health -= damage;
+		gm.UpdateGameMainUI(health / maxHealth);
 		if (health <= 0)
 		{
 			gm.GameClear();
 		}
+	}
+
+	new public void Heal(float healHp)
+	{
+		base.Heal(healHp);
+		gm.UpdateGameMainUI(hpParsent: health / maxHealth);
 	}
 }
